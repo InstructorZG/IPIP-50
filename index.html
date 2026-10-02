@@ -30,10 +30,25 @@ label{
 display:block;
 margin:6px 0;
 }
+
 button{
-font-size:1rem;
-padding:12px 20px;
-cursor:pointer;
+    font-size:1.4rem;
+    font-weight:bold;
+    padding:20px 40px;
+    cursor:pointer;
+    background:#003366;
+    color:white;
+    border:none;
+    border-radius:8px;
+}
+
+button:hover{
+    background:#0055a5;
+}
+
+button:focus{
+    outline:4px solid #ffbf47;
+    outline-offset:3px;
 }
 #results{
 margin-top:30px;
@@ -49,6 +64,9 @@ font-weight:bold;
 </head>
 <body>
 <h1>IPIP-50 Personality Assessment</h1>
+<p>
+All 50 questions must be answered before scores can be calculated.
+</p>
 <p>
 This self-assessment is based on the International Personality Item Pool
 (IPIP) Big Five markers. Responses are scored only in your browser and
