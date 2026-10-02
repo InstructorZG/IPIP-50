@@ -65,6 +65,10 @@ display:none;
 color:#b00020;
 font-weight:bold;
 }
+.missingQuestion{
+    border:4px solid #b00020 !important;
+    background-color:#fff8f8;
+}
 </style>
 </head>
 <body>
@@ -537,6 +541,17 @@ Calculate My Scores
 </div>
 <script>
 function scoreAssessment(){
+    document
+        .querySelectorAll(".missingQuestion")
+        .forEach(el =>
+            el.classList.remove("missingQuestion")
+        );
+
+    document
+        .querySelectorAll(".error")
+        .forEach(el =>
+            el.remove()
+        );
 
     let extraversion = 0;
     let agreeableness = 0;
