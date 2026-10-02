@@ -515,7 +515,123 @@ Calculate My Scores
 </div>
 <script>
 function scoreAssessment(){
-alert("The scoring function is working.");
+
+    let extraversion = 0;
+    let agreeableness = 0;
+    let conscientiousness = 0;
+    let emotionalStability = 0;
+    let openness = 0;
+
+    function getScore(questionNumber){
+
+        const selected =
+            document.querySelector(
+                `input[name="q${questionNumber}"]:checked`
+            );
+
+        if(!selected){
+            return null;
+        }
+
+        return parseInt(selected.value);
+    }
+
+    function reverse(value){
+        return 6 - value;
+    }
+
+    for(let i = 1; i <= 50; i++){
+
+        let score = getScore(i);
+
+        if(score === null){
+            alert(
+              "Please answer every question before scoring."
+            );
+            return;
+        }
+
+        switch(i){
+
+            case 1: extraversion += score; break;
+            case 6: extraversion += reverse(score); break;
+            case 11: extraversion += score; break;
+            case 16: extraversion += reverse(score); break;
+            case 21: extraversion += score; break;
+            case 26: extraversion += reverse(score); break;
+            case 31: extraversion += score; break;
+            case 36: extraversion += reverse(score); break;
+            case 41: extraversion += score; break;
+            case 46: extraversion += reverse(score); break;
+
+            case 2: agreeableness += reverse(score); break;
+            case 7: agreeableness += score; break;
+            case 12: agreeableness += reverse(score); break;
+            case 17: agreeableness += score; break;
+            case 22: agreeableness += reverse(score); break;
+            case 27: agreeableness += score; break;
+            case 32: agreeableness += reverse(score); break;
+            case 37: agreeableness += score; break;
+            case 42: agreeableness += score; break;
+            case 47: agreeableness += score; break;
+
+            case 3: conscientiousness += score; break;
+            case 8: conscientiousness += reverse(score); break;
+            case 13: conscientiousness += score; break;
+            case 18: conscientiousness += reverse(score); break;
+            case 23: conscientiousness += score; break;
+            case 28: conscientiousness += reverse(score); break;
+            case 33: conscientiousness += score; break;
+            case 38: conscientiousness += reverse(score); break;
+            case 43: conscientiousness += score; break;
+            case 48: conscientiousness += score; break;
+
+            case 4: emotionalStability += reverse(score); break;
+            case 9: emotionalStability += score; break;
+            case 14: emotionalStability += reverse(score); break;
+            case 19: emotionalStability += score; break;
+            case 24: emotionalStability += reverse(score); break;
+            case 29: emotionalStability += reverse(score); break;
+            case 34: emotionalStability += reverse(score); break;
+            case 39: emotionalStability += reverse(score); break;
+            case 44: emotionalStability += reverse(score); break;
+            case 49: emotionalStability += reverse(score); break;
+
+            case 5: openness += score; break;
+            case 10: openness += reverse(score); break;
+            case 15: openness += score; break;
+            case 20: openness += reverse(score); break;
+            case 25: openness += score; break;
+            case 30: openness += reverse(score); break;
+            case 35: openness += score; break;
+            case 40: openness += score; break;
+            case 45: openness += score; break;
+            case 50: openness += score; break;
+
+        }
+    }
+
+    document.getElementById("results").style.display = "block";
+
+    document.getElementById("results").innerHTML = `
+        <h2>Your Results</h2>
+
+        <p><strong>Extraversion:</strong> ${extraversion} / 50</p>
+
+        <p><strong>Agreeableness:</strong> ${agreeableness} / 50</p>
+
+        <p><strong>Conscientiousness:</strong> ${conscientiousness} / 50</p>
+
+        <p><strong>Emotional Stability:</strong> ${emotionalStability} / 50</p>
+
+        <p><strong>Intellect / Imagination (Openness):</strong> ${openness} / 50</p>
+
+        <p>
+        Higher scores indicate greater standing on that trait.
+        This assessment is for educational purposes only and is
+        not a psychological diagnosis.
+        </p>
+    `;
 }
 </script>
 </body>
